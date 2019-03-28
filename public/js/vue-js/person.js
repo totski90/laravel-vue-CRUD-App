@@ -5,13 +5,14 @@ new Vue({
 
 	data: {
 		items: [],
+		item_id: '',
 		hasError: true,
 		hasDeleted: true,
 		hasAgeError: true,
 		showModal: false,
-		e_name: '',
-		e_age: '',    e_id: '',
-		e_profession: '',
+		p_name: '',
+		p_age: '',    e_id: '',
+		p_profession: '',
 		newItem: { 'name': '','age': '','profession': '' },
 	},
 
@@ -44,15 +45,25 @@ new Vue({
 			}
 		},
 
-		editItem: function(){
-			var i_val_1 = document.getElementById('e_id');
-			var n_val_1 = document.getElementById('e_name');
-			var a_val_1 = document.getElementById('e_age');
-			var p_val_1 = document.getElementById('e_profession');
+		setVal(item_id, p_name,  p_age, p_profession) {
+			this.item_id = item_id;
+			this.p_name = p_name;
+			this.p_profession = p_profession;
+			this.p_age = p_age;
+		},
 
-			axios.post('/edititems/' + i_val_1.value, {val_1: n_val_1.value, val_2: a_val_1.value,val_3: p_val_1.value })
+		editItem: function(){			
+			var name = document.getElementById('p_name');
+			var age = document.getElementById('p_age');
+			var profession = document.getElementById('p_profession');
+
+			axios.post('/edititems/' + this.item_id, {p_name: name.value, p_age: age.value, p_profession: profession.value })
 			.then(response => {
-				this.getVueItems();
+				this.getVueItems();			
+
+				$('#'+this.item_id).modal('hide');
+				$('.modal-backdrop').remove();
+
 				this.showModal=false
 			});
 			this.hasDeleted = true;
