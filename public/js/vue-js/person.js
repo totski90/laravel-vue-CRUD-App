@@ -40,8 +40,9 @@ new Vue({
 				axios.post('/vueitems', input).then(function (response) {
 					_this.newItem = { 'name': '', 'age': '', 'profession': '' };
 					_this.getVueItems();
-				});
-				this.hasDeleted = true;
+
+					toastr.success('Added successfully.');
+				});				
 			}
 		},
 
@@ -63,21 +64,19 @@ new Vue({
 
 				$('#'+this.item_id).modal('hide');
 				$('.modal-backdrop').remove();
-
-				this.showModal=false
+				toastr.success('Updated successfully.');			
 			});
-			this.hasDeleted = true;
 
 		},
 
 		deleteItem: function deleteItem(item) {
 			var _this = this;
 			axios.post('/vueitems/' + item.id).then(function (response) {
-				_this.getVueItems();
-				_this.hasError = true, 
-				_this.hasDeleted = false
+				_this.getVueItems();				
 
+				toastr.success('Deleted successfully.');
 			});
+
 		}
 	}
 });

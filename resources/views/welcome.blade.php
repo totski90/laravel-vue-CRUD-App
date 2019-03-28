@@ -10,61 +10,12 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
     <!-- Bootstrap -->
-    <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- Styles -->
-    <style>
-        html, body {
-            background-color: #fff;
-            color: #636b6f;
-            font-family: 'Nunito', sans-serif;
-            font-weight: 200;
-            height: 100vh;
-            margin: 0;
-        }
 
-        .full-height {
-            height: 100vh;
-        }
+    <!-- toaster notification -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
-
-        .position-ref {
-            position: relative;
-        }
-
-        .top-right {
-            position: absolute;
-            right: 10px;
-            top: 18px;
-        }
-
-        .content {
-            text-align: center;
-        }
-
-        .title {
-            font-size: 84px;
-        }
-
-        .links > a {
-            color: #636b6f;
-            padding: 0 25px;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: .1rem;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-
-        .m-b-md {
-            margin-bottom: 30px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/custom.css') }}">
 </head>
 <body>
     <div class="flex-center position-ref full-height">
@@ -89,18 +40,10 @@
                     required v-model="newItem.profession" placeholder=" Enter your profession">
                 </div>
 
-                <!-- <p class="text-center alert alert-danger"
-                    v-bind:class="{ hidden: hasError }">Please fill all fields!</p>
-                    <p class="text-center alert alert-danger"
-                    v-bind:class="{ hidden: hasAgeError }">Please enter a valid age!</p> -->
-
                 <button type="button" class="btn btn-primary btn-block" @click="createItem" id="name" name="name">
                     <span class="glyphicon glyphicon-plus"></span> Add
                 </button>
 
-                {{-- csrf_field() --}}
-                <!-- <p class="text-center alert alert-success"
-                    v-bind:class="{ hidden: hasDeleted }">Deleted Successfully!</p> -->
                 <div class="table table-borderless" id="table">
                     <table class="table table-borderless" id="table">
                         <thead>
@@ -146,7 +89,11 @@
     <script src="{{ asset('js/vue-js/vue2.1.3.js') }}"></script>    
     <script src="{{ asset('js/vue-js/person.js') }}"></script>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- toaster notification -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
