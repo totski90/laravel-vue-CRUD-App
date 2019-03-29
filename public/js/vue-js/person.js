@@ -8,7 +8,8 @@ new Vue({
 
 		item_id: '',
 		p_name: '',
-		p_age: '',    e_id: '',
+		p_age: '',    
+		e_id: '',
 		p_profession: '',
 		
 		newItem: { 'name': '','age': '','profession': '' },
@@ -31,12 +32,13 @@ new Vue({
 			var _this = this;
 			var input = this.newItem;
 
-			this.hasError = true;
 			axios.post('/vueitems', input).then(function (response) {
 				_this.newItem = { 'name': '', 'age': '', 'profession': '' };
 				_this.getVueItems();
 
 				toastr.success('Added successfully.');
+			}).catch(error => {
+				toastr.error('Fill all fields!');
 			});
 		},
 

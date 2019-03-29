@@ -65,14 +65,11 @@
                                 <button class="btn btn-info btn-sm" data-toggle="modal" :data-target="'#'+item.id" @click="setVal(item.id, item.name, item.age, item.profession)">
                                     <i class="fa fa-pencil" aria-hidden="true"></i> Edit
                                 </button>
-                            </td>                            
 
-                            <td>                                
                                 <button class="btn btn-danger btn-sm" @click.prevent="deleteItem(item)">
                                     <i class="glyphicon glyphicon-trash"></i> Delete
                                 </button>
                             </td>
-
                         </tr>
                     </table>
                 </div>
